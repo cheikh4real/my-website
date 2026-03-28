@@ -1,0 +1,444 @@
+/* Global reset for predictable spacing and sizing */
+/* Global reset for predictable spacing and sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Mulish", sans-serif;
+}
+
+/* Keyframes for nav slide-down animation */
+@keyframes slideDown {
+  from {
+    transform: translateY(-120px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Prevent page scroll while loader is visible */
+body.is-loading,
+body.is-transition-lock {
+  overflow: hidden;
+}
+
+/* Full-screen loader overlay shown on initial page load */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #b2a08f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0);
+  transition: transform 1s cubic-bezier(0.63, 1.26, 0.56, -0.65);
+}
+
+/* Loader entry animation: panel slides down */
+.loader.slide-down {
+  transform: translateY(-120px);
+}
+
+/* Loader exit animation: panel slides up and reveals page */
+.loader.slide-up {
+  transform: translateY(-100%);
+}
+
+/* Intro logo reveal video sizing inside loader */
+.loader__video {
+  width: min(56vw, 560px);
+  height: auto;
+  object-fit: contain;
+}
+
+/* Make loader video larger on small screens for readability */
+@media (max-width: 768px) {
+  .loader__video {
+    width: 78vw;
+  }
+}
+
+/* Main hero section that holds nav, text, social, and background videos */
+.showcase {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  background: #000;
+  color: antiquewhite;
+}
+
+/* Shared base style for both background video layers */
+.showcase video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+/* Base looping background video (bottom layer) */
+#bgVideo {
+  z-index: 0;
+  opacity: 0.95;
+}
+
+/* Transition video layer above base loop; toggled via JS */
+#bgVideoTop {
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.35s ease-in-out;
+}
+
+/* Dark overlay to improve text readability over video */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* Header container pinned near top of hero */
+.header {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  padding: 0 40px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  visibility: hidden;
+  transform: translateY(-120px);
+  opacity: 0;
+}
+/* Slide down header into view when loader finishes */
+.header.animate-in {
+  visibility: visible;
+  animation: slideDown 1s ease-out both;
+}
+
+/* Nav spans full header width */
+.nav {
+  width: 100%;
+}
+
+/* Horizontal nav layout */
+.nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  width: 100%;
+  padding: 0;
+}
+nav ul li {
+  position: relative;
+}
+
+/* Push first item (About Us) to the left edge */
+.nav ul li:first-child {
+  margin-right: auto;
+}
+
+/* Push Contact/News group to the right side */
+.nav ul li.nav-contact {
+  margin-left: auto;
+}
+
+/* Keep the last item at far right */
+.nav ul li:last-child {
+  margin-left: auto;
+}
+
+/* Nav link appearance */
+.nav ul li a {
+  color: antiquewhite;
+  text-decoration: none;
+  font-size: 24px;
+  transition: opacity 0.3s ease;
+}
+/* BULLET */
+.nav a::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 33%;
+  transform: translateY(-50%) scale(0);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: antiquewhite;
+  opacity: 0.3;
+  transition: all 0.3s ease;
+}
+.nav a:hover::before {
+  transform: translateY(-50%) scale(1);
+  opacity: 1;
+}
+/* NAV HOVER -> reduce opacity of all */
+.nav:hover a {
+  opacity: 0.4;
+}
+
+/* HOVERED ITEM */
+.nav a:hover {
+  opacity: 1;
+}
+
+/* BULLET ACTIVE EFFECT */
+.nav a:hover::before {
+  transform: translateY(-50%) scale(1.4);
+  opacity: 1;
+}
+
+/* Logo sizing in the center nav item */
+.nav ul li img,
+.nav ul li svg {
+  display: block;
+  height: 50px;
+  max-width: 120px;
+  width: auto;
+}
+
+/* Main text block over hero video */
+.text {
+  position: relative;
+  z-index: 5;
+  max-width: 60ch;
+  color: antiquewhite;
+  line-height: 1;
+  display: grid;
+  align-items: center;
+  top: 100px;
+  left: 25%;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+.text h2 {
+  font-size: 46px;
+  margin-bottom: 20px;
+}
+
+/* Text transition classes used by JS on each scene change */
+.text-animate-in {
+  animation: text-slide-fade-in 620ms ease-in-out both;
+}
+
+.text-animate-out {
+  animation: text-slide-fade-out 320ms ease-in-out both;
+}
+
+/* New text enters from top and fades in */
+@keyframes text-slide-fade-in {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Current text exits downward and fades out */
+@keyframes text-slide-fade-out {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+}
+
+/* Animation classes for the centered scroll button */
+.btn-animate-in {
+  animation: btn-slide-fade-in 620ms ease-in-out both;
+}
+.btn-animate-out {
+  animation: btn-slide-fade-out 320ms ease-in-out both;
+}
+
+@keyframes btn-slide-fade-in {
+  from {
+    transform: translate(-50%, -30px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 0.7;
+  }
+}
+
+@keyframes btn-slide-fade-out {
+  from {
+    transform: translate(-50%, 0);
+    opacity: 0.7;
+  }
+  to {
+    transform: translate(-50%, 24px);
+    opacity: 0;
+  }
+}
+/* Scroll skipping button that appears after first scroll, allowing users to jump to next section */
+.scroll-skipping {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, -30px);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 32px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  z-index: 10;
+  cursor: pointer;
+  opacity: 0;
+}
+.scroll-icon {
+  width: 16px;
+  height: 16px;
+  filter: brightness(2);
+  transform: rotate(180deg);
+}
+.scroll-text {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 6px;
+  width: 16px;
+  height: 16px;
+
+  fill: #000;
+  transform: rotate(-180deg);
+}
+
+/* =========================================
+   SECOND SECTION
+   ========================================= */
+.second-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh; /* Ensures it fills at least one full screen */
+  background-color: #f7f6f6;
+  color: antiquewhite;
+  padding: 0;
+  z-index: 10;
+}
+
+.showroom-content {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 160px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  color: #111;
+}
+
+.telha-title {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.telha-desc {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+  font-weight: 300;
+  color: #444;
+}
+
+/* Essential for SplitText line animation */
+.split-line-wrapper {
+  overflow: hidden;
+  padding-bottom: 0.1em; /* Allow for descenders */
+  margin-bottom: -0.1em;
+  line-height: 1.3;
+  display: block;
+  vertical-align: top;
+}
+
+.split-line-inner {
+  display: block;
+  will-change: transform;
+  transform: translate3d(0, 0, 0); /* Force GPU */
+}
+
+.particles-section {
+  position: relative;
+  height: 200vh;
+  overflow: hidden;
+}
+/* =========================================
+/* --- Responsive Logic --- */
+/* ========================================= */
+@media (max-width: 768px) {
+  /* Adjust header padding */
+  .header {
+    padding: 0 20px;
+  }
+
+  /* Reset nav layout for mobile */
+  .nav ul {
+    gap: 0;
+  }
+
+  /* Hide all nav items by default */
+  .nav ul li {
+    display: none;
+  }
+
+  /* Show ONLY the logo item */
+  .nav ul li.nav-logo,
+  .nav ul li:has(.nav-logo) {
+    display: block;
+    margin: 0; /* Remove auto margins to align left */
+  }
+
+  /* Center the text block on mobile */
+  .text {
+    left: 0;
+    top: 0; /* Reset top offset to let flexbox center it */
+    right: 0;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+    transform: translateY(0); /* Adjust vertical alignment for mobile */
+  }
+
+  .text h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+
+  .text p {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+}

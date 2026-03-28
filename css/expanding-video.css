@@ -1,0 +1,79 @@
+/* =========================================
+   Expanding Video (Inside Second Section)
+   ========================================= */
+.video-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: none; /* Temporarily hidden for redesign */
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20; /* Sit above particles */
+  margin-top: 0;
+}
+
+.expanding-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+  margin: 0;
+  /* Initial State: Looks like a particle */
+  transform: translate(-12vw, 10vh) scale(0.3);
+  opacity: 1;
+
+  will-change: transform, opacity, border-radius;
+}
+
+.video-overlay-content {
+  position: absolute;
+  z-index: 10;
+  color: white;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  padding: 0 20px;
+  pointer-events: none;
+  opacity: 0; /* Hidden initially, revealed by JS Timeline */
+}
+
+.video-overlay-content * {
+  pointer-events: auto;
+}
+
+.video-text-content h3 {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.video-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.video-btn {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  font-family: "Mulish", sans-serif;
+}
+
+.video-btn:hover,
+.video-btn.active {
+  background: white;
+  color: #000;
+}
