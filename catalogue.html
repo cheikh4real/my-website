@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Catalogue éditorial SAR Céramiques — une première section immersive, claire et entièrement visible dans le viewport."
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/staggered-menu.css" />
+    <link rel="stylesheet" href="catalogue.css" />
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Load GSAP for high-end animations -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/SplitText.min.js"></script>
+
+    <title>Catalogue — SAR Céramiques</title>
+  </head>
+  <body>
+    <header class="header animate-in nav-ready nav-dark">
+      <!-- title removed per request, navbar now full width -->
+      <nav class="nav">
+        <ul>
+          <li class="nav-logo">
+            <a href="index.html"
+              ><img src="assets/icons/SAR_Logo_Light.svg" alt="Logo"
+            /></a>
+          </li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li class="nav-showroom">
+            <a href="index.html#showroom">Showroom</a>
+            <a class="nav-sub-link" href="catalogue.html">Catalogue</a>
+          </li>
+          <li class="nav-contact"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="catalogue-shell">
+      <div class="horizontal-main-track">
+        <!-- Restored Hero Section -->
+        <section class="scene scene--hero" id="intro">
+          <div class="scene__content hero-layout">
+            <div class="hero-copy">
+              <p class="eyebrow">Nos projets</p>
+              <h1 class="scene-title hero-title">
+                <span class="line">Des espaces</span>
+                <span class="line">pensés pour durer,</span>
+                <span class="line">créés pour inspirer.</span>
+              </h1>
+              <div class="hero-copy__divider"></div>
+              <p class="hero-copy__body">
+                Chaque projet est pensé comme une composition en couches : des
+                matériaux sobres, des volumes clairs et une lecture qui avance
+                au rythme du scroll.
+              </p>
+            </div>
+
+            <aside class="hero-rail" aria-hidden="true">
+              <span class="hero-rail__label">Showcase — Collection 2024</span>
+              <div class="media">
+                <img
+                  src="https://images.unsplash.com/photo-1600585154340-be6191dae10c?auto=format&fit=crop&q=80"
+                  class="parallax-img"
+                  alt="Showcase"
+                />
+              </div>
+            </aside>
+
+            <div class="hero-stamp" aria-hidden="true">
+              <span>SAR</span>
+              <span>CÉRAMIQUES</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Luxury Expanding Panels Component -->
+        <section class="epanels-section">
+          <div class="epanels-container">
+            <!-- Panel 01 -->
+            <article class="epanel" data-index="0">
+              <span class="epanel__number">01</span>
+              <div class="epanel__bg">
+                <img
+                  src="https://images.unsplash.com/photo-1600585154340-be6191dae10c?auto=format&fit=crop&q=80"
+                  alt="Architectural"
+                  class="epanel__img"
+                />
+              </div>
+              <div class="epanel__content">
+                <span class="epanel__label">Collection 01</span>
+                <h2 class="epanel__title">Minimalisme <br />Épure</h2>
+                <div class="epanel__reveal">
+                  <p class="epanel__description">
+                    Une exploration de la lumière et des volumes négatifs, où
+                    chaque ligne raconte une histoire de sérénité absolue.
+                  </p>
+                  <a href="#" class="epanel__cta">Découvrir le projet</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Panel 02 -->
+            <article class="epanel" data-index="1">
+              <span class="epanel__number">02</span>
+              <div class="epanel__bg">
+                <img
+                  src="https://images.unsplash.com/photo-1600607687940-4e2363092245?auto=format&fit=crop&q=80"
+                  alt="Ceramics"
+                  class="epanel__img"
+                />
+              </div>
+              <div class="epanel__content">
+                <span class="epanel__label">Collection 02</span>
+                <h2 class="epanel__title">Matière <br />Brute</h2>
+                <div class="epanel__reveal">
+                  <p class="epanel__description">
+                    Le dialogue entre l'argile naturelle et l'artisanat
+                    contemporain. Des textures tactiles pour des intérieurs
+                    organiques.
+                  </p>
+                  <a href="#" class="epanel__cta">Consulter le catalogue</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Panel 03 -->
+            <article class="epanel" data-index="2">
+              <span class="epanel__number">03</span>
+              <div class="epanel__bg">
+                <img
+                  src="https://images.unsplash.com/photo-1600566753190-17f0bb2a6c3e?auto=format&fit=crop&q=80"
+                  class="epanel__img"
+                />
+              </div>
+              <div class="epanel__content">
+                <span class="epanel__label">Collection 03</span>
+                <h2 class="epanel__title">Ombre <br />& Reflet</h2>
+                <div class="epanel__reveal">
+                  <p class="epanel__description">
+                    Jeux de contrastes et finitions polies pour une architecture
+                    qui vit au rythme du soleil.
+                  </p>
+                  <a href="#" class="epanel__cta">Voir la galerie</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Panel 04 -->
+            <article class="epanel" data-index="3">
+              <span class="epanel__number">04</span>
+              <div class="epanel__bg">
+                <img
+                  src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80"
+                  class="epanel__img"
+                />
+              </div>
+              <div class="epanel__content">
+                <span class="epanel__label">Collection 04</span>
+                <h2 class="epanel__title">Héritage <br />Moderne</h2>
+                <div class="epanel__reveal">
+                  <p class="epanel__description">
+                    Redéfinir le classique par des formes audacieuses et une
+                    palette de couleurs intemporelles.
+                  </p>
+                  <a href="#" class="epanel__cta">Explorer l'héritage</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Panel 05 -->
+            <article class="epanel" data-index="4">
+              <span class="epanel__number">05</span>
+              <div class="epanel__bg">
+                <img
+                  src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?auto=format&fit=crop&q=80"
+                  class="epanel__img"
+                />
+              </div>
+              <div class="epanel__content">
+                <span class="epanel__label">Collection 05</span>
+                <h2 class="epanel__title">Espace <br />Infini</h2>
+                <div class="epanel__reveal">
+                  <p class="epanel__description">
+                    Conçu pour les environnements de grande envergure, mariant
+                    robustesse technique et élégance visuelle.
+                  </p>
+                  <a href="#" class="epanel__cta">Prendre rendez-vous</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="catalogue.js"></script>
+  </body>
+</html>

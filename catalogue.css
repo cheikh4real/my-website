@@ -1,0 +1,272 @@
+:root {
+  --bg-color: #fdfcfb;
+  --text-color: #1a1a1a;
+  --font-main: "Izmir-Regular", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-main);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Horizontal Wrapper --- */
+.catalogue-shell {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.horizontal-main-track {
+  display: flex;
+  width: max-content;
+  height: 100vh;
+  will-change: transform;
+}
+
+/* --- Hero Section Styles --- */
+.scene--hero {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+  position: relative;
+  z-index: 10;
+}
+
+.hero-layout {
+  width: 100%;
+  height: 100%;
+  padding-left: 8vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.hero-copy {
+  max-width: 50vw;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+.hero-title .line {
+  display: block;
+  overflow: hidden;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  margin-bottom: 1.5rem;
+  display: block;
+  opacity: 0.6;
+}
+
+.hero-copy__divider {
+  width: 60px;
+  height: 1px;
+  background-color: var(--text-color);
+  margin-bottom: 2rem;
+  opacity: 0.3;
+}
+
+.hero-copy__body {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 40ch;
+  opacity: 0.7;
+}
+
+.hero-rail {
+  width: 35vw;
+  height: 80vh;
+  margin-right: 4vw;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hero-rail__label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  opacity: 0.4;
+  margin-bottom: 2rem;
+}
+
+.hero-rail .media {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.parallax-img {
+  width: 120%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-stamp {
+  position: absolute;
+  bottom: 8vh;
+  right: 8vw;
+  font-size: 0.7rem;
+  letter-spacing: 0.5em;
+  opacity: 0.4;
+  display: flex;
+  flex-direction: column;
+}
+
+.epanels-section {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.epanels-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.epanel {
+  position: relative;
+  height: 100%;
+  width: 144px; /* Initial width for the panel */
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex; /* Changed to flex */
+  flex-direction: column; /* Arranges children vertically */
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  will-change: width; /* Removed transform as x animation is removed from panel */
+}
+
+.epanel__number {
+  position: absolute;
+  top: 4vh; /* Adjust as needed */
+  left: 2vw; /* Adjust as needed */
+  z-index: 3; /* Above image and content */
+  color: rgba(255, 255, 255, 0.4); /* Subtle color */
+  margin-top: 90vh; /* Position the number near the bottom */
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.epanel__bg {
+  position: relative; /* Changed to relative to allow content to sit below in flex flow */
+  z-index: 0;
+  overflow: hidden;
+  height: 6vh; /* Even smaller initial height */
+  width: 100%;
+  margin-top: 90vh; /* Lower the background near the bottom */
+  will-change: height, width;
+}
+
+.epanel__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 60%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.epanel__img {
+  width: 115%; /* Extra width for parallax */
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the 87vh space */
+  transform-origin: center;
+}
+
+.epanel__label {
+  display: block;
+  opacity: 0;
+  transform: translateY(40px);
+  font-size: 0.65rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+}
+
+.epanel__title {
+  font-size: clamp(2rem, 4vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 400;
+  margin-bottom: 0;
+  opacity: 0; /* Hidden initially */
+  transform: translateY(40px); /* Start from below */
+  will-change: transform;
+}
+
+.epanel__reveal {
+  /* This wrapper helps manage the hidden state of description and CTA */
+  overflow: hidden;
+}
+
+.epanel__description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(40px);
+  margin-bottom: 1.5rem; /* Tightened for the 13vh bar */
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.epanel__cta {
+  pointer-events: auto;
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.4s ease;
+}
+
+.epanel__cta:hover {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+/* New styles for the content area under the image */
+.epanel__content {
+  position: relative;
+  z-index: 2;
+  flex-grow: 1; /* Fill the remaining height below the image */
+  width: 100%;
+  background-color: #000; /* Black background for the text */
+  color: #fff;
+  padding: 0 24px; /* Changed to fixed padding to prevent jitter during expansion */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center content within its height */
+  pointer-events: auto;
+}

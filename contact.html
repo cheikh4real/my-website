@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/staggered-menu.css" />
+    <link rel="stylesheet" href="../css/contact.css" />
+    <title>Contact - SAR Céramiques</title>
+  </head>
+
+  <body class="contact-page">
+    <div id="loader" class="loader" aria-label="Loading screen">
+      <video
+        id="loaderVideo"
+        class="loader__video"
+        src="../assets/icons/Logo_Reveal.mp4"
+        playsinline
+        muted
+        autoplay
+        preload="auto"
+      ></video>
+    </div>
+
+    <div class="staggered-menu-wrapper" data-position="right">
+      <div class="sm-prelayers" aria-hidden="true">
+        <div class="sm-prelayer" style="background: #b2a08f"></div>
+        <div class="sm-prelayer" style="background: #2a2a2a"></div>
+      </div>
+      <header class="staggered-menu-header">
+        <button class="sm-toggle" aria-label="Open menu" type="button">
+          <span class="sm-toggle-textWrap" aria-hidden="true">
+            <span class="sm-toggle-textInner"
+              ><span class="sm-toggle-line">Menu</span
+              ><span class="sm-toggle-line">Close</span></span
+            >
+          </span>
+        </button>
+      </header>
+      <aside class="staggered-menu-panel">
+        <div class="sm-panel-inner">
+          <ul class="sm-panel-list">
+            <li class="sm-panel-itemWrap">
+              <a class="sm-panel-item" href="index.html"
+                ><span class="sm-panel-itemLabel">Home</span></a
+              >
+            </li>
+            <li class="sm-panel-itemWrap">
+              <a class="sm-panel-item" href="index.html#about"
+                ><span class="sm-panel-itemLabel">About Us</span></a
+              >
+            </li>
+            <li class="sm-panel-itemWrap">
+              <a class="sm-panel-item" href="index.html#showroom"
+                ><span class="sm-panel-itemLabel">Showroom</span></a
+              >
+            </li>
+            <li class="sm-panel-itemWrap">
+              <a class="sm-panel-item" href="index.html#catalogue"
+                ><span class="sm-panel-itemLabel">Catalogue</span></a
+              >
+            </li>
+            <li class="sm-panel-itemWrap">
+              <a class="sm-panel-item" href="contact.html"
+                ><span class="sm-panel-itemLabel">Contact</span></a
+              >
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <header class="header animate-in">
+      <nav class="nav">
+        <ul>
+          <li class="nav-logo">
+            <a href="index.html"
+              ><img src="../assets/icons/SAR_Logo_Light.svg" alt="Logo"
+            /></a>
+          </li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li class="nav-showroom">
+            <a href="index.html#showroom">Showroom</a>
+            <a class="nav-sub-link" href="index.html#catalogue">Catalogue</a>
+          </li>
+          <li class="nav-contact"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="contact-main">
+      <div class="contact-stepper-container">
+        <div class="stepper-progress">
+          <div class="progress-bar" id="progressBar"></div>
+          <div class="step-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+
+        <form id="contactForm" class="stepper-form">
+          <div class="form-step active" data-step="1">
+            <h2>Comment vous appelez-vous ?</h2>
+            <div class="input-group">
+              <input
+                type="text"
+                id="fullname"
+                name="fullname"
+                placeholder="Votre nom complet"
+                required
+              />
+              <span class="input-focus-line"></span>
+            </div>
+            <div class="step-controls">
+              <button type="button" class="btn-next">Suivant</button>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="2">
+            <h2>Votre adresse email ?</h2>
+            <div class="input-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="email@exemple.com"
+                required
+              />
+              <span class="input-focus-line"></span>
+            </div>
+            <div class="step-controls">
+              <button type="button" class="btn-prev">Précédent</button>
+              <button type="button" class="btn-next">Suivant</button>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="3">
+            <h2>Dites-nous en plus</h2>
+            <div class="input-group">
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Votre message..."
+                rows="4"
+              ></textarea>
+              <span class="input-focus-line"></span>
+            </div>
+            <div class="step-controls">
+              <button type="button" class="btn-prev">Précédent</button>
+              <button type="submit" class="btn-submit">Envoyer</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <div class="contact-bottom-left" id="socialLinks">
+      <a href="#" class="social-icon-fixed" aria-label="Facebook">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+          />
+        </svg>
+      </a>
+      <a href="#" class="social-icon-fixed" aria-label="Instagram">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+          <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+        </svg>
+      </a>
+      <a href="#" class="social-icon-fixed" aria-label="LinkedIn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+          />
+          <rect width="4" height="12" x="2" y="9" />
+          <circle cx="4" cy="4" r="2" />
+        </svg>
+      </a>
+    </div>
+
+    <div class="contact-bottom-right" id="contactDetails">
+      <div class="detail-item">
+        <span class="detail-label">Localisation</span>
+        <a href="https://maps.google.com" target="_blank" class="detail-value"
+          >Zone Industrielle, Sétif</a
+        >
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Email & Tel</span>
+        <a href="mailto:contact@sar-ceram.dz" class="detail-value"
+          >contact@sar-ceram.dz</a
+        >
+        <a href="tel:+21336000000" class="detail-value">+213 (0) 36 00 00 00</a>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="../js/staggered-menu.js"></script>
+    <script src="../js/contact.js"></script>
+    <script src="../js/footer.js"></script>
+  </body>
+</html>
